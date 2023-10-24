@@ -4,12 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yt_ulearning/common/routes/pages.dart';
 import 'package:yt_ulearning/common/values/colors.dart';
+import 'package:yt_ulearning/global.dart';
 import 'package:yt_ulearning/pages/welcome/welcome.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp();
+  await Global.init();
   runApp(const MyApp());
 }
 
@@ -31,10 +30,11 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
             ),
           ),
-          home: const WelcomeScreen(),
           onGenerateRoute: AppPages.generateRouteSettings,
         ),
       ),
     );
   }
 }
+
+//3:56-3:57 - localstorage/shared_preferences on user authentication

@@ -5,7 +5,7 @@ import 'package:yt_ulearning/pages/sign_in/bloc/signin_blocs.dart';
 import 'package:yt_ulearning/pages/sign_in/bloc/signin_events.dart';
 import 'package:yt_ulearning/pages/sign_in/bloc/signin_states.dart';
 import 'package:yt_ulearning/pages/sign_in/sign_in_controller.dart';
-import '/common_widgets.dart';
+import '../../common/widgets/common_widgets.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});

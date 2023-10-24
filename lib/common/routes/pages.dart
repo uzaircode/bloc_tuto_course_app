@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yt_ulearning/common/routes/names.dart';
+import 'package:yt_ulearning/global.dart';
 import 'package:yt_ulearning/pages/application/application_page.dart';
 import 'package:yt_ulearning/pages/application/bloc/app_blocs.dart';
 import 'package:yt_ulearning/pages/register/bloc/register_blocs.dart';
@@ -54,12 +55,20 @@ class AppPages {
   static MaterialPageRoute generateRouteSettings(RouteSettings settings) {
     if (settings.name != null) {
       //check for route name matching when we click on a navigator object
-      var results = routes().where((element) => element.route == settings.name);
-      if (results.isNotEmpty) {
+      var result = routes().where((element) => element.route == settings.name);
+      if (result.isNotEmpty) {
+        print("first log");
+        print(result.first.route);
         //if we have a match, return the page
-        print('valid route name ${settings.name}');
+        bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
+
+        if (result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
+          print("second log");
+          return MaterialPageRoute(
+              builder: (context) => const SignInScreen(), settings: settings);
+        }
         return MaterialPageRoute(
-            builder: (_) => results.first.page, settings: settings);
+            builder: (_) => result.first.page, settings: settings);
       }
     }
     print('invalid route name ${settings.name}');
