@@ -42,6 +42,8 @@ class SignInController {
           if (user != null) {
             //We got verified user from firebase
             toastInfo(msg: "user exists");
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("/application", (route) => false);
           } else {
             //We have error getting user from firebase
             print("no user");

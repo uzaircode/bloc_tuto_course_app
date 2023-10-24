@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yt_ulearning/common/routes/names.dart';
+import 'package:yt_ulearning/pages/application/application_page.dart';
+import 'package:yt_ulearning/pages/application/bloc/app_blocs.dart';
 import 'package:yt_ulearning/pages/register/bloc/register_blocs.dart';
 import 'package:yt_ulearning/pages/register/register.dart';
 import 'package:yt_ulearning/pages/sign_in/bloc/signin_blocs.dart';
@@ -32,9 +34,9 @@ class AppPages {
       ),
       PageEntity(
         route: AppRoutes.APPLICATION,
-        page: const WelcomeScreen(),
+        page: const ApplicationPage(),
         bloc: BlocProvider(
-          create: (_) => WelcomeBloc(),
+          create: (_) => AppBlocs(),
         ),
       ),
     ];

@@ -1,36 +1,66 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:yt_ulearning/pages/application/application_widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yt_ulearning/common/values/colors.dart';
+import 'package:yt_ulearning/pages/application/bloc/app_blocs.dart';
+import 'package:yt_ulearning/pages/application/bloc/app_events.dart';
+import 'package:yt_ulearning/pages/application/bloc/app_states.dart';
+import 'package:yt_ulearning/pages/application/widgets/application_widgets.dart';
 
-class ApplicationPage extends StatelessWidget {
+class ApplicationPage extends StatefulWidget {
   const ApplicationPage({super.key});
 
   @override
+  State<ApplicationPage> createState() => _ApplicationPageState();
+}
+
+class _ApplicationPageState extends State<ApplicationPage> {
+  int _index = 0;
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
+    return BlocBuilder<AppBlocs, AppState>(builder: (context, state) {
+      return Container(
         color: Colors.white,
         child: SafeArea(
           child: Scaffold(
-            body: buildPage(0),
-            bottomNavigationBar: BottomNavigationBar(
-              onTap: (value) {},
-              elevation: 0,
-              items: [
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.home_outlined),
-                    label: 'Home',
-                    backgroundColor: Colors.red),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.search_outlined), label: 'Search'),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.book_outlined), label: 'Course'),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.chat_outlined), label: 'Chat'),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.person_outline), label: 'Profile'),
-              ],
+            body: buildPage(state.index),
+            bottomNavigationBar: Container(
+              width: 375.w,
+              height: 58.h,
+              decoration: BoxDecoration(
+                color: AppColors.primaryElement,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.h),
+                  topRight: Radius.circular(20.h),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                  ),
+                ],
+              ),
+              child: BottomNavigationBar(
+                currentIndex: state.index,
+                onTap: (value) {
+                  context.read<AppBlocs>().add(TriggerAppEvent(value));
+                },
+                elevation: 0,
+                type: BottomNavigationBarType.fixed,
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                selectedItemColor: AppColors.primaryElement,
+                unselectedItemColor: AppColors.primaryFourElementText,
+                items: bottomTabs,
+              ),
             ), // This trailing comma makes auto-formatting nicer for build methods.
           ),
-        ));
+        ),
+      );
+    });
   }
 }
+
+// 3:54
