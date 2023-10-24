@@ -62,6 +62,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                     forgotPassword(),
+                    SizedBox(height: 70.h),
                     buildLogInAndRegButton('Log In', "login", () {
                       SignInController(context: context).handleSignIn("email");
                       // Navigator.of(context).pushNamedAndRemoveUntil(, (route) => false);

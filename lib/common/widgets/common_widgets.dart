@@ -28,7 +28,7 @@ Widget buildThirdPartyLogin(BuildContext context) {
   return Center(
     child: Container(
         margin: EdgeInsets.only(top: 40.h, bottom: 20.h),
-        padding: EdgeInsets.only(left: 25.w, right: 25.w),
+        padding: EdgeInsets.only(left: 70.w, right: 70.w),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

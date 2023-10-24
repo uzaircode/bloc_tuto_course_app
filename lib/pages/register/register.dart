@@ -30,7 +30,7 @@ class RegisterScreen extends StatelessWidget {
                           'Enter your details below & free sign up'),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 36.h),
+                      margin: EdgeInsets.only(top: 60.h),
                       padding: EdgeInsets.only(left: 25.w, right: 25.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
