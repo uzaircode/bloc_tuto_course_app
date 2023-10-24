@@ -174,3 +174,139 @@ Widget _slidersContainer({String path = 'assets/icons/art.png'}) {
     ),
   );
 }
+
+Widget menuView() {
+  return Column(
+    children: [
+      Container(
+        width: 325.w,
+        margin: EdgeInsets.only(top: 15.h),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            _reusableText('Choose your course'),
+            GestureDetector(
+              onTap: () {},
+              child: _reusableText(
+                'See all',
+                color: AppColors.primaryThreeElementText,
+                fontSize: 10,
+              ),
+            ),
+          ],
+        ),
+      ),
+      Container(
+        margin: EdgeInsets.only(top: 20.w),
+        child: Row(
+          children: [
+            _reusableMenuText('All'),
+            _reusableMenuText(
+              'Popular',
+              textColor: AppColors.primaryThreeElementText,
+              backgroundColor: Colors.white,
+            ),
+            _reusableMenuText(
+              'Newest',
+              textColor: AppColors.primaryThreeElementText,
+              backgroundColor: Colors.white,
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
+}
+
+Widget _reusableText(
+  String text, {
+  Color color = AppColors.primaryText,
+  int fontSize = 16,
+  FontWeight fontWeight = FontWeight.bold,
+}) {
+  return Text(
+    text,
+    style: TextStyle(
+      color: color,
+      fontWeight: fontWeight,
+      fontSize: fontSize.sp,
+    ),
+  );
+}
+
+Widget _reusableMenuText(
+  String menuText, {
+  Color textColor = AppColors.primaryElementText,
+  Color backgroundColor = AppColors.primaryElement,
+}) {
+  return GestureDetector(
+    onTap: () {},
+    child: Container(
+      margin: EdgeInsets.only(right: 20.w),
+      child: Row(
+        children: [
+          Container(
+            padding: EdgeInsets.fromLTRB(15.w, 5.w, 15.w, 5.w),
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(7.w),
+              border: Border.all(color: backgroundColor),
+            ),
+            child: _reusableText(
+              menuText,
+              color: textColor,
+              fontWeight: FontWeight.normal,
+              fontSize: 11,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+//For course grid view ui
+Widget courseGrid() {
+  return Container(
+    padding: EdgeInsets.all(12.w),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(15.w),
+      image: const DecorationImage(
+        image: AssetImage("assets/icons/image_2.png"),
+        fit: BoxFit.fill,
+      ),
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Best course for IT and Engineering',
+          maxLines: 1,
+          overflow: TextOverflow.fade,
+          textAlign: TextAlign.left,
+          softWrap: false,
+          style: TextStyle(
+            color: AppColors.primaryElementText,
+            fontWeight: FontWeight.bold,
+            fontSize: 11.sp,
+          ),
+        ),
+        SizedBox(height: 5.h),
+        Text(
+          'Best course for IT',
+          maxLines: 1,
+          overflow: TextOverflow.fade,
+          textAlign: TextAlign.left,
+          softWrap: false,
+          style: TextStyle(
+            color: AppColors.primaryFourElementText,
+            fontWeight: FontWeight.bold,
+            fontSize: 11.sp,
+          ),
+        ),
+      ],
+    ),
+  );
+}
