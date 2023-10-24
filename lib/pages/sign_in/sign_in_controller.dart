@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yt_ulearning/common/values/constant.dart';
 import 'package:yt_ulearning/common/widgets/flutter_toast.dart';
+import 'package:yt_ulearning/global.dart';
 import 'package:yt_ulearning/pages/sign_in/bloc/signin_blocs.dart';
 
 class SignInController {
@@ -42,6 +44,8 @@ class SignInController {
           if (user != null) {
             //We got verified user from firebase
             toastInfo(msg: "user exists");
+            Global.storageService
+                .setString(AppConstants.STORAGE_USER_TOKEN_KEY, user.uid);
             Navigator.of(context)
                 .pushNamedAndRemoveUntil("/application", (route) => false);
           } else {

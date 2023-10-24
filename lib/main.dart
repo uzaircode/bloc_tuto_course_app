@@ -38,3 +38,4 @@ class MyApp extends StatelessWidget {
 }
 
 //3:56-3:57 - localstorage/shared_preferences on user authentication
+//4:23 - user authentication token

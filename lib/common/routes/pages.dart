@@ -57,16 +57,24 @@ class AppPages {
       //check for route name matching when we click on a navigator object
       var result = routes().where((element) => element.route == settings.name);
       if (result.isNotEmpty) {
-        print("first log");
         print(result.first.route);
         //if we have a match, return the page
         bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
 
         if (result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
-          print("second log");
+          bool isLoggedin = Global.storageService.getIsLoggedIn();
+
+          if (isLoggedin) {
+            // Application screen
+            return MaterialPageRoute(
+                builder: (context) => const ApplicationPage(),
+                settings: settings);
+          }
+          // Sign-in screen
           return MaterialPageRoute(
               builder: (context) => const SignInScreen(), settings: settings);
         }
+        // On-boarding screen
         return MaterialPageRoute(
             builder: (_) => result.first.page, settings: settings);
       }
