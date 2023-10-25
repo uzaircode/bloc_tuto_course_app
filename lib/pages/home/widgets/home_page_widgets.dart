@@ -19,17 +19,11 @@ AppBar buildAppBar() {
             height: 12.h,
             child: Image.asset("assets/icons/menu.png"),
           ),
-          GestureDetector(
-            child: Container(
-              width: 40.w,
-              height: 40.h,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/icons/person.png"),
-                ),
-              ),
-            ),
-          )
+          SizedBox(
+            width: 24.w,
+            height: 24.h,
+            child: Image.asset("assets/icons/person.png"),
+          ),
         ],
       ),
     ),

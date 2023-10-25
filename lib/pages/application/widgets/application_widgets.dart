@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:yt_ulearning/common/values/colors.dart';
 import 'package:yt_ulearning/pages/home/home_page.dart';
+import 'package:yt_ulearning/pages/profile/profile_page.dart';
 
 Widget buildPage(int index) {
   List<Widget> _widget = [
@@ -9,7 +10,7 @@ Widget buildPage(int index) {
     const Center(child: Text("Search")),
     const Center(child: Text("Course")),
     const Center(child: Text("Chat")),
-    const Center(child: Text("Profile")),
+    const ProfilePage(),
   ];
   return _widget[index];
 }
