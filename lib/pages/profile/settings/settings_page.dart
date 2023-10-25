@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yt_ulearning/common/routes/names.dart';
+import 'package:yt_ulearning/common/values/constant.dart';
+import 'package:yt_ulearning/global.dart';
+import 'package:yt_ulearning/pages/application/bloc/app_blocs.dart';
+import 'package:yt_ulearning/pages/application/bloc/app_events.dart';
+import 'package:yt_ulearning/pages/bloc_providers.dart';
 import 'package:yt_ulearning/pages/profile/settings/bloc/settings_blocs.dart';
 import 'package:yt_ulearning/pages/profile/settings/bloc/settings_states.dart';
 import 'package:yt_ulearning/pages/profile/settings/widgets/settings_widgets.dart';
@@ -13,6 +18,15 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  void removeUserData() {
+    context.read<AppBlocs>().add(const TriggerAppEvent(0));
+    Global.storageService.remove(
+      AppConstants.STORAGE_USER_TOKEN_KEY,
+    );
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil(AppRoutes.SIGN_IN, (route) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,38 +37,7 @@ class _SettingsPageState extends State<SettingsPage> {
             return Container(
               child: Column(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: const Text('Confirm logout'),
-                              content: const Text(
-                                  'Are you sure you want to logout?'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () => Navigator.of(context).pop(),
-                                  child: const Text('Cancel'),
-                                ),
-                                TextButton(
-                                  onPressed: () {},
-                                  child: const Text('Confirm'),
-                                ),
-                              ],
-                            );
-                          });
-                    },
-                    child: Container(
-                      height: 100.w,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fitHeight,
-                          image: AssetImage('assets/icons/Logout.png'),
-                        ),
-                      ),
-                    ),
-                  )
+                  settingsButton(context, removeUserData),
                 ],
               ),
             );

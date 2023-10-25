@@ -28,4 +28,8 @@ class StorageService {
         : true;
   }
   // Global access
+
+  Future<bool> remove(String key) {
+    return _prefs.remove(key);
+  }
 }
