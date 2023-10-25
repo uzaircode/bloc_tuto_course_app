@@ -10,4 +10,6 @@ class AppRoutes {
   static const REGISTER = "/register";
   //home page
   static const HOME_PAGE = "/home_page";
+  //settings page
+  static const SETTING_PAGE = "/setting_page";
 }
