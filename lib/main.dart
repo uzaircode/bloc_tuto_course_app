@@ -1,11 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yt_ulearning/common/routes/pages.dart';
 import 'package:yt_ulearning/common/values/colors.dart';
 import 'package:yt_ulearning/global.dart';
-import 'package:yt_ulearning/pages/welcome/welcome.dart';
 
 Future<void> main() async {
   await Global.init();

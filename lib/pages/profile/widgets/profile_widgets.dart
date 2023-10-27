@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yt_ulearning/common/routes/names.dart';
 import 'package:yt_ulearning/common/values/colors.dart';
+import 'package:yt_ulearning/common/widgets/base_text_widget.dart';
 
 AppBar buildAppBar() {
   return AppBar(
@@ -15,14 +16,7 @@ AppBar buildAppBar() {
             height: 12.h,
             child: Image.asset("assets/icons/menu.png"),
           ),
-          Text(
-            'Profile',
-            style: TextStyle(
-              color: AppColors.primaryText,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          reusableText('Profile'),
           SizedBox(
             width: 24.w,
             height: 24.h,
@@ -88,14 +82,7 @@ Widget buildListView(BuildContext context) {
                       "assets/icons/${imagesInfo.values.elementAt(index)}"),
                 ),
                 SizedBox(width: 15.w),
-                Text(
-                  imagesInfo.keys.elementAt(index),
-                  style: TextStyle(
-                    color: AppColors.primaryText,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                reusableText(imagesInfo.keys.elementAt(index)),
               ],
             ),
           ),

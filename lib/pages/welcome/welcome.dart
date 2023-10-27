@@ -45,7 +45,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       "Next",
                       "First See Learning",
                       "Forget about a for of paper all knowledge in one learning",
-                      "assets/images/reading.png",
+                      "assets/images/girl_cook.png",
                     ),
                     _page(
                       2,

@@ -5,7 +5,6 @@ import 'package:yt_ulearning/common/values/constant.dart';
 import 'package:yt_ulearning/global.dart';
 import 'package:yt_ulearning/pages/application/bloc/app_blocs.dart';
 import 'package:yt_ulearning/pages/application/bloc/app_events.dart';
-import 'package:yt_ulearning/pages/bloc_providers.dart';
 import 'package:yt_ulearning/pages/profile/settings/bloc/settings_blocs.dart';
 import 'package:yt_ulearning/pages/profile/settings/bloc/settings_states.dart';
 import 'package:yt_ulearning/pages/profile/settings/widgets/settings_widgets.dart';
@@ -34,12 +33,10 @@ class _SettingsPageState extends State<SettingsPage> {
       body: SingleChildScrollView(
         child: BlocBuilder<SettingsBlocs, SettingsStates>(
           builder: (context, state) {
-            return Container(
-              child: Column(
-                children: [
-                  settingsButton(context, removeUserData),
-                ],
-              ),
+            return Column(
+              children: [
+                settingsButton(context, removeUserData),
+              ],
             );
           },
         ),
