@@ -8,7 +8,7 @@ import 'package:yt_ulearning/pages/home/bloc/homepage_blocs.dart';
 import 'package:yt_ulearning/pages/home/bloc/homepage_events.dart';
 import 'package:yt_ulearning/pages/home/bloc/homepage_states.dart';
 
-AppBar buildAppBar() {
+AppBar buildAppBar(String avatar) {
   return AppBar(
     title: Container(
       margin: EdgeInsets.only(left: 7.w, right: 7.w),
@@ -20,10 +20,18 @@ AppBar buildAppBar() {
             height: 12.h,
             child: Image.asset("assets/icons/menu.png"),
           ),
-          SizedBox(
-            width: 24.w,
-            height: 24.h,
-            child: Image.asset("assets/icons/person.png"),
+          GestureDetector(
+            child: Container(
+              width: 40.w,
+              height: 40.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(13.w)),
+                image: DecorationImage(
+                  image: NetworkImage(avatar),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
         ],
       ),

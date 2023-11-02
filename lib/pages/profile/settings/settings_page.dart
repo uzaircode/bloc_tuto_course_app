@@ -19,6 +19,8 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   void removeUserData() {
     context.read<AppBlocs>().add(const TriggerAppEvent(0));
+
+    Global.storageService.remove(AppConstants.STORAGE_USER_PROFILE_KEY);
     Global.storageService.remove(
       AppConstants.STORAGE_USER_TOKEN_KEY,
     );
