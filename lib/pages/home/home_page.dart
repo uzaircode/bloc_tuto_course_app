@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yt_ulearning/common/values/colors.dart';
-import 'package:yt_ulearning/pages/home/bloc/homepage_blocs.dart';
-import 'package:yt_ulearning/pages/home/bloc/homepage_states.dart';
+import 'package:yt_ulearning/pages/home/bloc/home_page_blocs.dart';
+import 'package:yt_ulearning/pages/home/bloc/home_page_states.dart';
 import 'package:yt_ulearning/pages/home/home_controller.dart';
 import 'package:yt_ulearning/pages/home/widgets/home_page_widgets.dart';
 
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: buildAppBar(_homeController.userProfile!.avatar.toString()),
+      appBar: buildAppBar(_homeController.userProfile.avatar.toString()),
       body: BlocBuilder<HomePageBlocs, HomePageStates>(
         builder: (context, state) {
           return Container(
@@ -59,11 +59,11 @@ class _HomePageState extends State<HomePage> {
                       childAspectRatio: 1.6,
                     ),
                     delegate: SliverChildBuilderDelegate(
-                      childCount: 4,
+                      childCount: state.courseItem.length,
                       (BuildContext context, int index) {
                         return GestureDetector(
                           onTap: () {},
-                          child: courseGrid(),
+                          child: courseGrid(state.courseItem[index]),
                         );
                       },
                     ),
