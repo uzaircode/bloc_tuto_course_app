@@ -12,4 +12,6 @@ class AppRoutes {
   static const HOME_PAGE = "/home_page";
   //settings page
   static const SETTING_PAGE = "/setting_page";
+  //for showing course detail
+  static const COURSE_DETAIL = "/course_detail";
 }
