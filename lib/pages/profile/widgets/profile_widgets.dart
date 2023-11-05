@@ -73,7 +73,7 @@ Widget buildListView(BuildContext context) {
                 Container(
                   width: 40.w,
                   height: 40.h,
-                  padding: const EdgeInsets.all(7.0),
+                  padding: EdgeInsets.all(7.0.w),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.w),
                     color: AppColors.primaryElement,
@@ -82,7 +82,14 @@ Widget buildListView(BuildContext context) {
                       "assets/icons/${imagesInfo.values.elementAt(index)}"),
                 ),
                 SizedBox(width: 15.w),
-                reusableText(imagesInfo.keys.elementAt(index)),
+                Text(
+                  imagesInfo.keys.elementAt(index),
+                  style: TextStyle(
+                    color: AppColors.primaryText,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ],
             ),
           ),
