@@ -9,7 +9,7 @@ class AppColors {
       Color.fromARGB(255, 247, 247, 249);
 
   /// main widget color blue
-  static const Color primaryElement = Color.fromARGB(255, 1, 32, 48);
+  static const Color primaryElement = Color.fromARGB(255, 61, 61, 216);
 
   /// main text color black
   static const Color primaryText = Color.fromARGB(255, 0, 0, 0);
@@ -22,7 +22,7 @@ class AppColors {
   static const Color primarySecondaryElementText =
       Color.fromARGB(255, 102, 102, 102);
   // main widget third color grey
-  static const Color primaryThreeElementText =
+  static const Color primaryThirdElementText =
       Color.fromARGB(255, 170, 170, 170);
 
   static const Color primaryFourElementText =

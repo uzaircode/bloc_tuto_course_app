@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
               slivers: [
                 SliverToBoxAdapter(
                   child: homePageText('Hello',
-                      color: AppColors.primaryThreeElementText, top: 20),
+                      color: AppColors.primaryThirdElementText, top: 20),
                 ),
                 SliverToBoxAdapter(
                   child: homePageText(userProfile.name ?? "",

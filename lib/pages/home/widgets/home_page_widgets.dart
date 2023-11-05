@@ -153,7 +153,7 @@ Widget slidersView(BuildContext context, HomePageStates state) {
           dotsCount: 3,
           position: state.index,
           decorator: const DotsDecorator(
-            color: AppColors.primaryThreeElementText,
+            color: AppColors.primaryThirdElementText,
             activeColor: AppColors.primaryElement,
             size: Size.square(5.0),
             activeSize: Size(17.0, 5.0),
@@ -195,7 +195,7 @@ Widget menuView() {
               onTap: () {},
               child: reusableText(
                 'See all',
-                color: AppColors.primaryThreeElementText,
+                color: AppColors.primaryThirdElementText,
                 fontSize: 10,
               ),
             ),
@@ -209,12 +209,12 @@ Widget menuView() {
             _reusableMenuText('All'),
             _reusableMenuText(
               'Popular',
-              textColor: AppColors.primaryThreeElementText,
+              textColor: AppColors.primaryThirdElementText,
               backgroundColor: Colors.white,
             ),
             _reusableMenuText(
               'Newest',
-              textColor: AppColors.primaryThreeElementText,
+              textColor: AppColors.primaryThirdElementText,
               backgroundColor: Colors.white,
             ),
           ],
