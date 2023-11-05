@@ -13,12 +13,18 @@ class HomeController {
   HomeController({required this.context});
 
   Future<void> init() async {
-    var result = await CourseAPI.courseList();
-    if (result.code == 200) {
-      context.read<HomePageBlocs>().add(HomePageCourseItem(result.data!));
-      print("perfect");
+    //make sure that user is logged in and then make an api call
+    if (Global.storageService.getUserToken().isNotEmpty) {
+      var result = await CourseAPI.courseList();
+      if (result.code == 200) {
+        if (context.mounted) {
+          context.read<HomePageBlocs>().add(HomePageCourseItem(result.data!));
+        }
+      } else {
+        print(result.code);
+      }
     } else {
-      print(result.code);
+      print('user has already logged out');
     }
   }
 }
