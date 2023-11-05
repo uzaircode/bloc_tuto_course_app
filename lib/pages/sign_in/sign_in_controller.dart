@@ -9,6 +9,7 @@ import 'package:yt_ulearning/common/entities/user.dart';
 import 'package:yt_ulearning/common/values/constant.dart';
 import 'package:yt_ulearning/common/widgets/flutter_toast.dart';
 import 'package:yt_ulearning/global.dart';
+import 'package:yt_ulearning/pages/home/home_controller.dart';
 import 'package:yt_ulearning/pages/sign_in/bloc/signin_blocs.dart';
 
 class SignInController {
@@ -65,7 +66,10 @@ class SignInController {
 
             //We got verified user from firebase
             toastInfo(msg: "user exists");
-            asyncPostAllData(loginRequestEntity);
+            await asyncPostAllData(loginRequestEntity);
+            if (context.mounted) {
+              await HomeController(context: context).init();
+            }
           } else {
             //We have error getting user from firebase
             print("no user");

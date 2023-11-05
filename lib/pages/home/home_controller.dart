@@ -7,10 +7,16 @@ import 'package:yt_ulearning/pages/home/bloc/home_page_blocs.dart';
 import 'package:yt_ulearning/pages/home/bloc/home_page_events.dart';
 
 class HomeController {
-  final BuildContext context;
-  UserItem userProfile = Global.storageService.getUserProfile();
+  late BuildContext context;
+  UserItem get userProfile => Global.storageService.getUserProfile();
+  static final HomeController _singleton = HomeController._internal();
 
-  HomeController({required this.context});
+  HomeController._internal();
+
+  factory HomeController({required BuildContext context}) {
+    _singleton.context = context;
+    return _singleton;
+  }
 
   Future<void> init() async {
     //make sure that user is logged in and then make an api call
