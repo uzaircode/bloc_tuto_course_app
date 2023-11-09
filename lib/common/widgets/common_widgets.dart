@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yt_ulearning/common/values/colors.dart';
+import 'package:yt_ulearning/pages/sign_in/sign_in_controller.dart';
 
 AppBar buildappBar(String type) {
   return AppBar(
@@ -32,17 +33,19 @@ Widget buildThirdPartyLogin(BuildContext context) {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _reusableIcons("google.png"),
-            _reusableIcons("apple.png"),
-            _reusableIcons("facebook.png"),
+            _reusableIcons("google.png", context),
+            _reusableIcons("apple.png", context),
+            _reusableIcons("facebook.png", context),
           ],
         )),
   );
 }
 
-Widget _reusableIcons(String iconName) {
+Widget _reusableIcons(String iconName, BuildContext context) {
   return GestureDetector(
-    onTap: () {},
+    onTap: () {
+      SignInController(context: context).handleSignIn("google");
+    },
     child: SizedBox(
       width: 40.w,
       height: 40.w,

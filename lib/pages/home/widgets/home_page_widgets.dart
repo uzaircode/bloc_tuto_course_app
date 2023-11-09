@@ -27,10 +27,10 @@ AppBar buildAppBar(String avatar) {
               width: 40.w,
               height: 40.h,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(13.w)),
+                borderRadius: BorderRadius.circular(20.w),
                 image: DecorationImage(
                   image: NetworkImage(avatar),
-                  fit: BoxFit.cover,
+                  // image: NetworkImage("${AppConstants.SERVER_API_URL}$avatar"),
                 ),
               ),
             ),
