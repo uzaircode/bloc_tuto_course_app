@@ -17,3 +17,9 @@ Widget reusableText(
     ),
   );
 }
+
+AppBar buildAppBar(String url) {
+  return AppBar(
+    title: reusableText(url),
+  );
+}

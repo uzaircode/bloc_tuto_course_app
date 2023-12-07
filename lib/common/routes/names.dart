@@ -14,4 +14,6 @@ class AppRoutes {
   static const SETTING_PAGE = "/setting_page";
   //for showing course detail
   static const COURSE_DETAIL = "/course_detail";
+  //pay web view
+  static const PAY_WEB_VIEW = "/pay_web_view";
 }

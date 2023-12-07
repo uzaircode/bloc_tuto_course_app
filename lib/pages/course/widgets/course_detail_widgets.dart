@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yt_ulearning/common/values/colors.dart';
+import 'package:yt_ulearning/common/values/constant.dart';
 import 'package:yt_ulearning/common/widgets/base_text_widget.dart';
+import 'package:yt_ulearning/pages/course/course_detail/bloc/course_detail_states.dart';
 
-AppBar buildAppBar() {
-  return AppBar(
-    title: reusableText('Course Detail'),
-  );
-}
-
-Widget thumbnail() {
+Widget thumbnail(String thumbnail) {
   return Container(
     width: 325.w,
     height: 200.h,
-    decoration: const BoxDecoration(
+    decoration: BoxDecoration(
       image: DecorationImage(
         fit: BoxFit.fitWidth,
-        image: AssetImage("assets/icons/image_1.png"),
+        image: NetworkImage('${AppConstants.SERVER_UPLOADS}$thumbnail'),
       ),
     ),
   );
@@ -75,9 +71,9 @@ Widget _iconAndNum(String iconPath, int num) {
   );
 }
 
-Widget descriptionText(String text) {
+Widget descriptionText(String description) {
   return reusableText(
-    text,
+    description,
     color: AppColors.primaryThirdElementText,
     fontWeight: FontWeight.normal,
     fontSize: 11.sp,
@@ -110,13 +106,14 @@ Widget courseSummaryTitle() {
   return reusableText("The Course Includes", fontSize: 16.sp);
 }
 
-var imagesInfo = <String, String>{
-  '36 Hours Video': 'video_detail.png',
-  'Total 30 Lessons': 'file_detail.png',
-  '67 Download Resources': 'download_detail.png',
-};
+Widget courseSummaryView(BuildContext context, CourseDetailStates state) {
+  var imagesInfo = <String, String>{
+    '${state.courseItem!.video_len ?? "0"} Hours Video': 'video_detail.png',
+    'Total ${state.courseItem!.lesson_num ?? "0"} Lessons': 'file_detail.png',
+    '${state.courseItem!.down_num ?? "0"} Download Resources':
+        'download_detail.png',
+  };
 
-Widget courseSummaryView(BuildContext context) {
   return Column(
     children: [
       ...List.generate(

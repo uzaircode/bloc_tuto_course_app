@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:yt_ulearning/common/widgets/base_text_widget.dart';
-
-AppBar buildAppBar() {
-  return AppBar(
-    title: Container(
-      child: reusableText('Settings'),
-    ),
-  );
-}
 
 Widget settingsButton(
   BuildContext context,
